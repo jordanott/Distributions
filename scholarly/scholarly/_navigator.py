@@ -325,12 +325,16 @@ class Navigator(object, metaclass=Singleton):
         soup = self._get_soup(url + '#d=gsc_md_hist')
         hist = soup.find_all('div', 'gsc_md_hist_b')
 
-        years = [
-            year.text for year in hist[0].find_all('span', 'gsc_g_t')
-        ]
-        citations = [
-            citation.text for citation in hist[0].find_all('span', 'gsc_g_al')
-        ]
+        try:
+            years = [
+                year.text for year in hist[0].find_all('span', 'gsc_g_t')
+            ]
+            citations = [
+                citation.text for citation in hist[0].find_all('span', 'gsc_g_al')
+            ]
+        except:
+            years = []
+            citations = []
 
         return list(zip(years, citations))
 

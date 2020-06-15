@@ -15,7 +15,6 @@ setup.cfg
 # Setup notes
 setup_notes.md
 .ipynb_checkpoints
-*.ipynb
 .idea
 
 #logging
